@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mhike_background"
+    tools:context=".fragments.SearchFragment">
+
+    <LinearLayout
+        android:id="@+id/headerContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/search_title"
+                android:textColor="@color/mhike_text_primary"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameQueryLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/hint_search_name"
+                app:startIconDrawable="@drawable/ic_search">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameQueryInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/search_filters_title"
+                    android:textColor="@color/mhike_text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/resetFiltersText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_reset_filters"
+                    android:textColor="@color/mhike_primary"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/hint_hike_difficulty_label"
+                android:textColor="@color/mhike_text_secondary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/difficultyChipGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAll"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/difficulty_all" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipEasy"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/difficulty_easy" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipModerate"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/difficulty_moderate" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipHard"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/difficulty_hard" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipExpert"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/difficulty_expert" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/locationFilterLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/hint_filter_location">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/locationFilterInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/minLengthLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_filter_min_length">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/minLengthInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/maxLengthLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_filter_max_length">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/maxLengthInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/dateFromLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_filter_date_from">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/dateFromInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/dateToLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_filter_date_to">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/dateToInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/applyFiltersButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="@string/action_apply_filters" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/resultsRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerContainer"
+        tools:listitem="@layout/item_hike" />
+
+    <TextView
+        android:id="@+id/emptyStateText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:gravity="center"
+        android:text="@string/search_empty"
+        android:textColor="@color/mhike_text_secondary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerContainer"
+        app:layout_constraintVertical_bias="0.2"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

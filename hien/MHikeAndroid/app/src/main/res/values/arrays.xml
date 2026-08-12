@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="difficulty_options">
+        <item>Easy</item>
+        <item>Moderate</item>
+        <item>Hard</item>
+        <item>Expert</item>
+    </string-array>
+
+    <string-array name="terrain_options">
+        <item>Mountain</item>
+        <item>Forest</item>
+        <item>Coastal</item>
+        <item>Valley</item>
+        <item>Other</item>
+    </string-array>
+</resources>

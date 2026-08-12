@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.mhikeandroid.fragments.LoginFragment"
+        android:label="Log in"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.mhikeandroid.fragments.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.mhikeandroid.fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <navigation
+        android:id="@+id/entryFragment"
+        app:startDestination="@id/entryBasicFragment">
+
+        <fragment
+            android:id="@+id/entryBasicFragment"
+            android:name="com.example.mhikeandroid.fragments.EntryBasicFragment"
+            android:label="Add Hike"
+            tools:layout="@layout/fragment_entry_basic" />
+
+        <fragment
+            android:id="@+id/entryRouteFragment"
+            android:name="com.example.mhikeandroid.fragments.EntryRouteFragment"
+            android:label="Add Hike"
+            tools:layout="@layout/fragment_entry_route" />
+
+        <fragment
+            android:id="@+id/confirmFragment"
+            android:name="com.example.mhikeandroid.fragments.ConfirmFragment"
+            android:label="Review Hike"
+            tools:layout="@layout/fragment_confirm">
+            <action
+                android:id="@+id/action_confirm_to_detail"
+                app:destination="@id/detailFragment"
+                app:popUpTo="@id/entryFragment"
+                app:popUpToInclusive="true" />
+            <action
+                android:id="@+id/action_confirm_to_home"
+                app:destination="@id/homeFragment"
+                app:popUpTo="@id/entryFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+    </navigation>
+
+    <fragment
+        android:id="@+id/hikesFragment"
+        android:name="com.example.mhikeandroid.fragments.HikesFragment"
+        android:label="Hikes"
+        tools:layout="@layout/fragment_hikes">
+        <action
+            android:id="@+id/action_hikes_to_detail"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_hikes_to_entry"
+            app:destination="@id/entryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.mhikeandroid.fragments.DetailFragment"
+        android:label="Hike Detail"
+        tools:layout="@layout/fragment_detail">
+        <action
+            android:id="@+id/action_detail_to_entry"
+            app:destination="@id/entryFragment" />
+        <action
+            android:id="@+id/action_detail_to_observations"
+            app:destination="@id/observationsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/observationsFragment"
+        android:name="com.example.mhikeandroid.fragments.ObservationsFragment"
+        android:label="Observations"
+        tools:layout="@layout/fragment_observations" />
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.mhikeandroid.fragments.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_search_to_detail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+</navigation>

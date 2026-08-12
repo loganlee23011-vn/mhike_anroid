@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/mhike_background"
+    tools:context=".fragments.EntryRouteFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/action_back"
+                android:src="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/entry_title_add"
+                android:textColor="@color/mhike_text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/closeButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/action_close"
+                android:src="@drawable/ic_close" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/entry_step_route_label"
+            android:textColor="@color/mhike_text_secondary"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/entry_route_heading"
+            android:textColor="@color/mhike_text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="6dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_progress_bar_filled" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_progress_bar_filled" />
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lengthLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/hint_hike_length">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lengthInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/hint_hike_difficulty"
+            android:textColor="@color/mhike_text_primary" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/difficultyChipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipEasy"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/difficulty_easy" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipModerate"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/difficulty_moderate" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipHard"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/difficulty_hard" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipExpert"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/difficulty_expert" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/difficultyErrorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/mhike_error"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:text="Select a difficulty"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/estimatedDurationLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/hint_estimated_duration">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/estimatedDurationInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/hint_terrain_type"
+            android:textColor="@color/mhike_text_primary" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/terrainChipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMountain"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/terrain_mountain" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipForest"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/terrain_forest" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipCoastal"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/terrain_coastal" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipValley"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/terrain_valley" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipOther"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/terrain_other" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/backStepButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/action_back" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/continueButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="2"
+                android:text="@string/action_continue" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/mhike_surface"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="1dp"
+    app:strokeColor="@color/mhike_outline"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/thumbnailImage"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="12dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.MHike.Thumbnail"
+            tools:src="@drawable/terrain_mountain" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nameText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/mhike_text_primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    tools:text="Snowdon Summit" />
+
+                <TextView
+                    android:id="@+id/sharedTagText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_outline"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp"
+                    android:text="@string/hikes_shared_tag"
+                    android:textColor="@color/mhike_text_secondary"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/locationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/mhike_text_secondary"
+                tools:text="Snowdonia, Wales" />
+
+            <TextView
+                android:id="@+id/detailText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/mhike_text_secondary"
+                android:textSize="13sp"
+                tools:text="25 May 2024 · 9.2 km · Moderate" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

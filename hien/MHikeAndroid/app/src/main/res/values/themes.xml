@@ -1,0 +1,40 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MHikeAndroid" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/mhike_primary</item>
+        <item name="colorPrimaryDark">@color/mhike_primary_dark</item>
+        <item name="colorOnPrimary">@color/mhike_on_primary</item>
+        <item name="colorPrimaryContainer">@color/mhike_primary_light</item>
+        <item name="colorOnPrimaryContainer">@color/mhike_primary_dark</item>
+        <item name="colorSecondary">@color/mhike_primary</item>
+        <item name="colorOnSecondary">@color/mhike_on_primary</item>
+        <item name="colorSecondaryContainer">@color/mhike_primary_light</item>
+        <item name="colorOnSecondaryContainer">@color/mhike_primary_dark</item>
+        <item name="colorTertiary">@color/mhike_primary</item>
+        <item name="colorOnTertiary">@color/mhike_on_primary</item>
+        <item name="colorTertiaryContainer">@color/mhike_primary_light</item>
+        <item name="colorOnTertiaryContainer">@color/mhike_primary_dark</item>
+        <item name="colorError">@color/mhike_error</item>
+        <item name="colorOnError">@color/mhike_on_primary</item>
+        <item name="colorSurface">@color/mhike_surface</item>
+        <item name="colorOnSurface">@color/mhike_text_primary</item>
+        <item name="colorSurfaceVariant">@color/mhike_background</item>
+        <item name="colorOnSurfaceVariant">@color/mhike_text_secondary</item>
+        <item name="colorSurfaceContainer">@color/mhike_surface</item>
+        <item name="colorSurfaceContainerLow">@color/mhike_background</item>
+        <item name="colorSurfaceContainerLowest">@color/mhike_background</item>
+        <item name="colorSurfaceContainerHigh">@color/mhike_surface</item>
+        <item name="colorSurfaceContainerHighest">@color/mhike_surface</item>
+        <item name="colorOutline">@color/mhike_outline</item>
+        <item name="colorOutlineVariant">@color/mhike_outline</item>
+        <item name="android:colorBackground">@color/mhike_background</item>
+        <item name="colorOnBackground">@color/mhike_text_primary</item>
+        <item name="android:windowBackground">@color/mhike_background</item>
+    </style>
+
+    <style name="Theme.MHikeAndroid" parent="Base.Theme.MHikeAndroid" />
+
+    <style name="ShapeAppearance.MHike.Thumbnail" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerSize">12dp</item>
+    </style>
+</resources>

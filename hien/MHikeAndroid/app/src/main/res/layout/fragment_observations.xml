@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mhike_background"
+    tools:context=".fragments.ObservationsFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/mhike_background"
+        android:title="@string/observations_title"
+        android:titleTextColor="@color/mhike_text_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/observationsRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:padding="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/editorContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintVertical_bias="0"
+        tools:listitem="@layout/item_observation" />
+
+    <TextView
+        android:id="@+id/emptyStateText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:gravity="center"
+        android:text="@string/observations_empty"
+        android:textColor="@color/mhike_text_secondary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/editorContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintVertical_bias="0.3"
+        tools:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/editorContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/mhike_surface"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/observedAtRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_schedule"
+                app:tint="@color/mhike_text_secondary" />
+
+            <TextView
+                android:id="@+id/observedAtText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:textColor="@color/mhike_text_secondary"
+                android:textSize="12sp"
+                tools:text="21 May 2024, 14:30" />
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/observationTextLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_observation_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/observationTextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/commentsLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/hint_observation_comments">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/commentsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/cancelEditorButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_circle_outline"
+                android:contentDescription="@string/action_cancel"
+                android:src="@drawable/ic_close" />
+
+            <ImageButton
+                android:id="@+id/saveObservationButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_circle_primary"
+                android:contentDescription="@string/action_save"
+                android:src="@drawable/ic_check"
+                android:tint="@color/mhike_on_primary" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addObservationFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:contentDescription="@string/observation_entry_title_add"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/mhike_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/mhike_on_primary" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

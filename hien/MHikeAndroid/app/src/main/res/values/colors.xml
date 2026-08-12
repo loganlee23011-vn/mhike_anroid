@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="mhike_primary">#1E5631</color>
+    <color name="mhike_primary_dark">#163F24</color>
+    <color name="mhike_primary_light">#EAF3EA</color>
+    <color name="mhike_on_primary">#FFFFFFFF</color>
+    <color name="mhike_background">#F7F5F0</color>
+    <color name="mhike_surface">#FFFFFFFF</color>
+    <color name="mhike_text_primary">#1B1B18</color>
+    <color name="mhike_text_secondary">#6B6B63</color>
+    <color name="mhike_error">#C0392B</color>
+    <color name="mhike_outline">#E4E1D8</color>
+    <color name="mhike_scrim">#59000000</color>
+
+    <color name="mhike_difficulty_easy">#3E8E4F</color>
+    <color name="mhike_difficulty_moderate">#E0A526</color>
+    <color name="mhike_difficulty_hard">#D9622B</color>
+    <color name="mhike_difficulty_expert">#C0392B</color>
+</resources>

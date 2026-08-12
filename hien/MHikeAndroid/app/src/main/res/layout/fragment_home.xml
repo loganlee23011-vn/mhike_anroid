@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mhike_background"
+    tools:context=".fragments.HomeFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Greeting + logout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="top"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/greetingText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/mhike_text_primary"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        tools:text="Good morning!" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/home_subtitle"
+                        android:textColor="@color/mhike_text_secondary" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/logoutButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/action_logout"
+                    android:src="@drawable/ic_logout" />
+            </LinearLayout>
+
+            <!-- Stats row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_surface_card"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="12dp">
+
+                    <TextView
+                        android:id="@+id/statHikesValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/mhike_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:text="12" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/home_stat_hikes_label"
+                        android:textColor="@color/mhike_text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_surface_card"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="12dp">
+
+                    <TextView
+                        android:id="@+id/statKmValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/mhike_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:text="42.5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/home_stat_km_label"
+                        android:textColor="@color/mhike_text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_surface_card"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="12dp">
+
+                    <TextView
+                        android:id="@+id/statCompletedValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/mhike_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:text="5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/home_stat_completed_label"
+                        android:textColor="@color/mhike_text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Upcoming hike -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/home_upcoming_hike_title"
+                    android:textColor="@color/mhike_text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/viewAllText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_view_all"
+                    android:textColor="@color/mhike_primary" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/upcomingHikeCard"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/upcomingImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        tools:src="@drawable/terrain_mountain" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_scrim_gradient" />
+
+                    <TextView
+                        android:id="@+id/upcomingBadgeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|end"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/bg_badge_pill"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        tools:text="In 3 days" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/upcomingTitleText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            tools:text="Snowdon Summit" />
+
+                        <TextView
+                            android:id="@+id/upcomingCaptionText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:textSize="13sp"
+                            tools:text="25 May 2024 · 9.2 km · Moderate" />
+                    </LinearLayout>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/upcomingEmptyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="16dp"
+                android:text="@string/home_no_upcoming"
+                android:textColor="@color/mhike_text_secondary"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/stripContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+            <!-- Quick actions -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/home_quick_actions_title"
+                android:textColor="@color/mhike_text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/actionMyHikes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_surface_card"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="16dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_hikes"
+                        app:tint="@color/mhike_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/home_action_my_hikes"
+                        android:textColor="@color/mhike_text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/actionSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_surface_card"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="16dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/mhike_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/home_action_search"
+                        android:textColor="@color/mhike_text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Recent observations -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/home_recent_observations_title"
+                android:textColor="@color/mhike_text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/observationsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/observationsEmptyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@string/home_no_observations"
+                android:textColor="@color/mhike_text_secondary"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="72dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addHikeFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:contentDescription="@string/entry_title_add"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/mhike_primary"
+        app:tint="@color/mhike_on_primary" />
+
+</FrameLayout>
